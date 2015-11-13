@@ -3,7 +3,6 @@ CC              = gcc
 DEBUG           = -g
 CFLAGS          = -Wall -pedantic -fPIC
 SHARED          = -shared
-DESTDIR         = /
 prefix          = /usr
 bindir          = $(prefix)/bin
 plibdir         = lib/security
