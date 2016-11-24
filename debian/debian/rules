@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE=1
+
+# multiarch support
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+# enable hardening options (we disable pie because it conflicts with -fPIC)
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all,-pie
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -O--buildsystem=cmake -- -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/
+
+override_dh_strip:
+	dh_strip -O--buildsystem=cmake --dbg-package=libpam-memcached-dbg

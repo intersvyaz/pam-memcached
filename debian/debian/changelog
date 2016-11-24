@@ -1,0 +1,5 @@
+pam-memcached (3.0.0-2+jessie) jessie; urgency=medium
+
+  * New major version 3.0.
+
+ -- Aleksey Katargin <gureedo@intersvyaz.net>  Thu, 24 Nov 2016 18:04:18 +0500
